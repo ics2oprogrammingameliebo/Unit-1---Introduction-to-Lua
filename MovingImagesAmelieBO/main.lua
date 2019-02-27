@@ -35,15 +35,14 @@ local function MoveShip (event)
 end
 -- MoveShip will be called over and over again
 Runtime:addEventListener("enterFrame", MoveShip)
------------- delete this when done
--- global variables
-scrollSpeed = 5
 
+-- global variables
+local scrollSpeed = 6
 -- character image with width and height
 local octopus = display.newImageRect("Images/octopus.png", 200, 200)
 
 -- set the image to transparent
-octopus.alpha = 0
+ octopus.alpha = 0
 
 -- set the initial x and y position of beetleship;
 octopus.x = 0
@@ -52,12 +51,12 @@ octopus.y = display.contentHeight/1.5
 -- Function: MoveShip
 -- Input: this function accepts an even listener
 -- Output: None
--- Description: THis function adds scroll speed to the x-value of the ship
+-- Description: This function adds scroll speed to the x-value of the ship
 local function MoveShip (event)
 	-- add the scroll speed to the x-value of the ship
 	octopus.x = octopus.x + scrollSpeed
 	-- change the transparency of the ship every time it moves so that it fades out
-	octopus.alpha = octopus.alpha + 0.01
+    octopus.alpha = octopus.alpha + 1
 end
 -- MoveShip will be called over and over again
 Runtime:addEventListener("enterFrame", MoveShip)
