@@ -1,7 +1,8 @@
 -- Title: TouchAndDrag
 -- Name: Amelie B-O
 -- Course: ICS2O/3C
--- This program displays images that react to a person's finger.
+-- This program has 2 images on the screen. 
+-- When I click and drag on each image, it moves with my finger.
 
 -- hide the staus bar
 display.setStatusBar(display.HiddenStatusBar)
@@ -35,6 +36,7 @@ GirlTwo.y = 200
 Girl.x = 600
 Girl.y = 300
 
+--Code for girl 2
 -- Function: GirlTwoListener
 -- Input: touch listener
 -- Output: none
@@ -61,6 +63,7 @@ end
 -- add the respective listeners to each object
 GirlTwo:addEventListener("touch", GirlTwoListener)
 ----------------------------------------------------------
+-- code for Girl 1
 local function GirlOneListener(touch)
 
 	if (touch.phase == "began") then
@@ -83,3 +86,26 @@ end
 -- add the respective listeners to each object
 GirlOne:addEventListener("touch", GirlOneListener)
 -------------------------------------------------------------
+-- code for Girl
+local function GirlListener(touch)
+
+	if (touch.phase == "began") then
+		if (alreadyTouchedGirlTwo == false) then
+		
+			alreadyTouchedGirl = true
+		end
+	end
+
+	if ( (touch.phase == "moved") and (alreadyTouchedGirl == true) ) then
+		Girl.x = touch.x
+		Girl.y = touch.y
+	end
+
+	if (touch.phase == "ended") then
+		alreadyTouchedGirl = false
+		alreadyTouchedGirlTwo = false
+	end
+end
+
+-- add the respective listeners to each object
+Girl:addEventListener("touch", GirlListener)
