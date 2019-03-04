@@ -44,7 +44,7 @@ Girl.y = 300
 local function GirlTwoListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedGirlOne == false) then
+		if (alreadyTouchedGirlOne == false) and (alreadyTouchedGirl == false) then
 			alreadyTouchedGirlTwo = true
 		end
 	end
@@ -67,7 +67,7 @@ GirlTwo:addEventListener("touch", GirlTwoListener)
 local function GirlOneListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedGirlTwo == false) then
+		if (alreadyTouchedGirlTwo == false) and (alreadyTouchedGirl == false) then
 			alreadyTouchedGirlOne = true
 		end
 	end
@@ -90,8 +90,7 @@ GirlOne:addEventListener("touch", GirlOneListener)
 local function GirlListener(touch)
 
 	if (touch.phase == "began") then
-		if (alreadyTouchedGirlTwo == false) then
-		
+		if (alreadyTouchedGirlTwo == false) and (alreadyTouchedGirlOne == false) then
 			alreadyTouchedGirl = true
 		end
 	end
