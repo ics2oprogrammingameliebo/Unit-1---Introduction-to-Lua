@@ -1,4 +1,6 @@
 -- Title: TouchAndReact
--- Name: Your Name
+-- Name: Amelie Bender-Olivas
 -- Course: ICS2O/3C
--- This program...
+-- This program  displays a blue button. When I click on it it changes
+-- to a red button and the word "Clicked" appears as well as an image
+-- and a sound effect. When I release the mouse it returns to the original screen.
