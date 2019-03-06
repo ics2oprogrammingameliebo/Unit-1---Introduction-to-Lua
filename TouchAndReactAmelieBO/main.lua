@@ -23,18 +23,18 @@ redButton.x = display.contentWidth/2
 redButton.y = display.contentHeight/2
 redButton.isVisible = false
 
+-- create penguin, set its position and make it invisible
+local penguin = display.newImageRect("Images/penguin.png", 200, 200)
+penguin.x = display.contentWidth/2
+penguin.y = display.contentHeight/1.3
+penguin.isVisible = false
+
 -- create text object, set its position and make it invisible
 local textObject = display.newText("Clicked!", 0, 0, nil, 60)
 textObject.x = display.contentWidth/2
 textObject.y = display.contentHeight/3
 textObject:setTextColor (0/255, 0/255, 255/255)
 textObject.isVisible = false
-
--- create image, set its position and make it invisible
-local penguin = display.newImageRect("Imaes/penguin.png", 200, 200)
-penguin.x = display.contentWidth/2
-penguin.y = display.contentHeight/3.5
-penguin.isVisible = false
 
 
 -- Function BlueButtonListener
@@ -47,13 +47,15 @@ local function BlueButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true
 		textObject.isVisible = true
+		penguin.isVisible = true
 	end
 
 	if (touch.phase == "ended") then
-	blueButton.isVisible = true
-	redButton.isVisible = false
-	textObject.isVisible = false
-		end
+		blueButton.isVisible = true
+		redButton.isVisible = false
+		textObject.isVisible = false
+		penguin.isVisible = false
+	end
 end
 
 -- add the respective listeners to each object
@@ -69,14 +71,37 @@ local function RedButtonListener(touch)
 		redButton.isVisible = true
 		blueButton.isVisible = false
 		textObject.isVisible = true
+		penguin.isVisible = true
 	end
 
 	if (touch.phase == "ended") then
-	redButton.isVisible = false
-	blueButton.isVisible = true
-	textObject.isVisible = false
-		end
+		redButton.isVisible = false
+		blueButton.isVisible = true
+		textObject.isVisible = false
+		penguin.isVisible = false
+	end
 end
 
 -- add the respective listeners to each object
 redButton:addEventListener("touch", RedButtonListener)
+---------------------------------------------------
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
