@@ -36,7 +36,7 @@ display.setStatusBar(display.HiddenStatusBar)
  	correctAnswer = randomNumber1 + randomNumber2
 
  	-- create question in text object
- 	questionObject.text = randomNumber1 .. " + " .. randomNumber2 "="
+ 	questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
 
  end
 
@@ -44,3 +44,67 @@ display.setStatusBar(display.HiddenStatusBar)
  	correctObject.isVisible = false
  	AskQuestion()
  end
+
+ local function NumericFieldListener( event )
+
+ 	-- User begins editing "numericField"
+ 	if ( event.phase == "began ") then
+
+ 		-- clear text field
+ 		event.target.text = " "
+
+ 	elseif event.phase == "submitteb" then
+
+ 		-- when the answer is submitted (enter key is pressed) set user input to user's answer
+ 		userAnswer = tonumber(event.target.text)
+
+ 		-- if the users answer and the correct answer are the same:
+ 		if (userAnswer == correctAnswer) then
+ 			correctObject.isVisible = true
+ 			timer.performWithDelay(2000, HiddenCorrect)
+ 		end
+ 	end
+ end
+
+ --------------------------------------------------------------------------
+ -- OBJECT CREATION
+ --------------------------------------------------------------------------
+
+ -- display a question and set the color
+ questionObject = display.newText ( " ", display.contentWidth/3, display.contentHeight/2, nil, 60 )
+questionObject:setTextColor(51/255, 0/255, 102/255)
+
+-- create the correct text object and make it invisible
+correctObject = display.newText( "Correct!", display.contentWidth/2, display.contentHeight*2/3, nil, 60 )
+correctObject:setTextColor(51/255, 0/255, 102/255)
+correctObject.isVisible = false
+
+-- Create numeric field
+numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 250,80 )
+numericField.inputType = "number"
+
+-- add the event listener for the numeric field
+numericField:addEventListener( "userInput", NumericFieldListener )
+
+------------------------------------------------------------------------
+-- FUNCTION CALLS
+-----------------------------------------------------------------------
+
+-- call the function to ask the question
+AskQuestion()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
