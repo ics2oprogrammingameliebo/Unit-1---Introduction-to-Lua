@@ -36,6 +36,7 @@ textObject.y = display.contentHeight/3
 textObject:setTextColor (0/255, 0/255, 255/255)
 textObject.isVisible = false
 
+local CorrectSound = audio.play( "Correct Answer Sound Effect.mp3" )
 
 -- Function BlueButtonListener
 -- Input: touch listener
@@ -48,6 +49,7 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = true
 		textObject.isVisible = true
 		penguin.isVisible = true
+		CorrectSound = true
 	end
 
 	if (touch.phase == "ended") then
@@ -55,6 +57,7 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = false
 		textObject.isVisible = false
 		penguin.isVisible = false
+		CorrectSound = false
 	end
 end
 
@@ -72,6 +75,7 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = false
 		textObject.isVisible = true
 		penguin.isVisible = true
+		CorrectSound = true
 	end
 
 	if (touch.phase == "ended") then
@@ -79,29 +83,9 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = true
 		textObject.isVisible = false
 		penguin.isVisible = false
+		CorrectSound = false
 	end
 end
 
 -- add the respective listeners to each object
 redButton:addEventListener("touch", RedButtonListener)
----------------------------------------------------
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
