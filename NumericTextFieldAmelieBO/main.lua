@@ -72,7 +72,7 @@ display.setStatusBar(display.HiddenStatusBar)
  			incorrectObject.isVisible = false
  			timer.performWithDelay(2000, HideCorrect)
 
- 		elseif (userAnswer == incorrectAnswer) 
+ 		elseif (userAnswer == incorrectAnswer) then
  			incorrectObject.isVisible = true
  			correctObject.isVisible = false
  			timer.performWithDelay(2000, HideIncorrect)
@@ -96,7 +96,6 @@ correctObject.isVisible = false
 incorrectObject = display.newText( "Incorrect", display.contentWidth/2, display.contentHeight*2/3, nil, 60 )
 incorrectObject:setTextColor(0/255, 103/255, 51/255)
 incorrectObject.isVisible = false
-
 
 -- Create numeric field
 numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 250,80 )
