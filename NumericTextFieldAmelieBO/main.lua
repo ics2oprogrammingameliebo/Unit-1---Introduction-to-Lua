@@ -55,7 +55,11 @@ display.setStatusBar(display.HiddenStatusBar)
  		-- clear text field
  		event.target.text = " "
 
+<<<<<<< HEAD
  	elseif ( event.phase == "submitted" ) then
+=======
+ 	elseif event.phase == "submitteb" then
+>>>>>>> d741f93b9ae338afebdfe648806d3ccdac5a14ac
 
  		-- when the answer is submitted (enter key is pressed) set user input to user's answer
  		userAnswer = tonumber(event.target.text)
@@ -67,12 +71,20 @@ display.setStatusBar(display.HiddenStatusBar)
  		end
  	end
  end
+<<<<<<< HEAD
+=======
+
+>>>>>>> d741f93b9ae338afebdfe648806d3ccdac5a14ac
  --------------------------------------------------------------------------
  -- OBJECT CREATION
  --------------------------------------------------------------------------
 
  -- display a question and set the color
+<<<<<<< HEAD
  questionObject = display.newText ( " ", display.contentWidth/3.5, display.contentHeight/2, nil, 60 )
+=======
+ questionObject = display.newText ( " ", display.contentWidth/3, display.contentHeight/2, nil, 60 )
+>>>>>>> d741f93b9ae338afebdfe648806d3ccdac5a14ac
 questionObject:setTextColor(51/255, 0/255, 102/255)
 
 -- create the correct text object and make it invisible
@@ -86,9 +98,33 @@ numericField.inputType = "number"
 
 -- add the event listener for the numeric field
 numericField:addEventListener( "userInput", NumericFieldListener )
+<<<<<<< HEAD
+=======
+
+>>>>>>> d741f93b9ae338afebdfe648806d3ccdac5a14ac
 ------------------------------------------------------------------------
 -- FUNCTION CALLS
 -----------------------------------------------------------------------
 
 -- call the function to ask the question
+<<<<<<< HEAD
 AskQuestion()
+=======
+AskQuestion()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> d741f93b9ae338afebdfe648806d3ccdac5a14ac
