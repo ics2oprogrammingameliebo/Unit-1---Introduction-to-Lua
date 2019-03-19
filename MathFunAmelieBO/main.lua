@@ -1,17 +1,9 @@
------------------------------------------------------------------------------------------
---
--- main.lua
---
------------------------------------------------------------------------------------------
-
--- Your code here
-
-
--- Title: NumericTextFields
+-- Title: MathFun
 -- Name: Amelie Bender-Olivas
 -- Course: ICS2O/3C
--- This program displays a math question and asks the user to answer in
--- a numeric texfield.
+-- This program displays a math question wich is either addition, 
+--subtraction, multiplication ot division and asks the user to answer
+-- in a numeric texfield.
 -----------------------------------------------------------------------
 
 -- hide the status bar
