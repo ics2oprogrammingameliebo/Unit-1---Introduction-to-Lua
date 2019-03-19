@@ -24,7 +24,6 @@ display.setStatusBar(display.HiddenStatusBar)
  local randomNumber2
  local userAnswer
  local correctAnswer
- local incorrectAnswer
 
  ----------------------------------------------------------------------
  -- LOCAL FUNCTIONS
@@ -72,7 +71,7 @@ display.setStatusBar(display.HiddenStatusBar)
  			incorrectObject.isVisible = false
  			timer.performWithDelay(2000, HideCorrect)
 
- 		elseif (userAnswer == incorrectAnswer) then
+ 		else
  			incorrectObject.isVisible = true
  			correctObject.isVisible = false
  			timer.performWithDelay(2000, HideIncorrect)
