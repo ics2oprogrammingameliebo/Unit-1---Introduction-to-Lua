@@ -37,17 +37,17 @@ display.setStatusBar(display.HiddenStatusBar)
     randomOperator = math.random(1,4)
 
     -- generate 2 random numbers
- 	randomNumber1 = math.random(0, 4)
+ 	randomNumber1 = math.random(5, 10)
  	randomNumber2 = math.random(0, 4)
 
  	-- if the random operator is 1, the do addition
  	if (randomOperator == 1) then
 
-    -- calculate the correct answer
- 	correctAnswer = randomNumber1 + randomNumber2
+        -- calculate the correct answer
+        correctAnswer = randomNumber1 + randomNumber2
 
- 	-- create question in text object
- 	questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
+        -- create question in text object
+        questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
 
     -- otherwise, if the random operator is 2, do subtraction
     elseif (randomOperator == 2) then
