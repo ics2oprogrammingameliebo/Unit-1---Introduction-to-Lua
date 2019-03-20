@@ -36,7 +36,13 @@ textObject.y = display.contentHeight/3
 textObject:setTextColor (0/255, 0/255, 255/255)
 textObject.isVisible = false
 
-local CorrectSound = audio.play( "Correct Answer Sound Effect.mp3" )
+----------------------------------------------------------------------------------------
+-- SOUNDS
+-----------------------------------------------------------------------------------
+
+-- creat local variables
+local animalSound = audio.loadSound( "Sounds/animal sound.mp3" ) -- Setting a variable to an mp3 file
+local animalSoundChannel
 
 -- Function BlueButtonListener
 -- Input: touch listener
@@ -49,7 +55,6 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = true
 		textObject.isVisible = true
 		penguin.isVisible = true
-		CorrectSound = true
 	end
 
 	if (touch.phase == "ended") then
@@ -57,7 +62,10 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = false
 		textObject.isVisible = false
 		penguin.isVisible = false
-		CorrectSound = false
+
+		animalSoundChannel = audio.play(animalSound)
+
+		timer.performWithDelay(2000, HideCorrect)
 	end
 end
 
