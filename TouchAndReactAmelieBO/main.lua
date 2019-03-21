@@ -40,8 +40,8 @@ textObject.isVisible = false
 -- SOUNDS
 -----------------------------------------------------------------------------------
 
--- creat local variables
-local animalSound = audio.loadSound( "Sounds/animal sound.mp3" ) -- Setting a variable to an mp3 file
+-- creat sound variables
+local animalSound = audio.loadSound( "Sounds/bird.mp3" ) -- Setting a variable to an mp3 file
 local animalSoundChannel
 
 -- Function BlueButtonListener
@@ -62,10 +62,6 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = false
 		textObject.isVisible = false
 		penguin.isVisible = false
-
-		animalSoundChannel = audio.play(animalSound)
-
-		timer.performWithDelay(2000, HideCorrect)
 	end
 end
 
@@ -83,7 +79,6 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = false
 		textObject.isVisible = true
 		penguin.isVisible = true
-		CorrectSound = true
 	end
 
 	if (touch.phase == "ended") then
@@ -91,7 +86,10 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = true
 		textObject.isVisible = false
 		penguin.isVisible = false
-		CorrectSound = false
+
+		animalSoundChannel = audio.play(animalSound)
+
+		timer.performWithDelay(2000, HideCorrect)
 	end
 end
 

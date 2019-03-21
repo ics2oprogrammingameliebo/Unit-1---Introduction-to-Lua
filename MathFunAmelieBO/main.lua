@@ -27,6 +27,17 @@ display.setStatusBar(display.HiddenStatusBar)
  local userAnswer
  local correctAnswer
 
+ -------------------------------------------------------------------
+ -- SOUNDS
+ -------------------------------------------------------------------
+ -- Correct sound
+ local correctSound = audio.loadSound( "Sounds/Correct Answer Sound Effect.mps")
+ local correctSoundChannel
+
+ -- Incorrect sound
+ local incorrectSound = audio.loadSound( "Sounds/Wrong Buzzer Sound Effect.mps")
+ local incorrectSoundChannel
+
  ----------------------------------------------------------------------
  -- LOCAL FUNCTIONS
  ----------------------------------------------------------------------
@@ -37,9 +48,10 @@ display.setStatusBar(display.HiddenStatusBar)
     randomOperator = math.random(1,4)
 
     -- generate 2 random numbers
- 	randomNumber1 = math.random(5, 10)
- 	randomNumber2 = math.random(0, 4)
-
+ 	randomNumber1 = math.random(0, 10)
+ 	randomNumber2 = math.random(0, 10)
+    --until ( randomNumber1 > randomNumber2)
+    -- while ( randomNumber1 < randomNumber2)
  	-- if the random operator is 1, the do addition
  	if (randomOperator == 1) then
 
@@ -50,7 +62,7 @@ display.setStatusBar(display.HiddenStatusBar)
         questionObject.text = randomNumber1 .. " + " .. randomNumber2 .. " = "
 
     -- otherwise, if the random operator is 2, do subtraction
-    elseif (randomOperator == 2) then
+    elseif (randomOperator == 2) then 
     	--calculate the correct answer
     	correctAnswer = randomNumber1 - randomNumber2
 
@@ -102,13 +114,22 @@ display.setStatusBar(display.HiddenStatusBar)
  		-- if the users answer and the correct answer are the same:
  		if (userAnswer == correctAnswer) then
  			correctObject.isVisible = true
- 			incorrectObject.isVisible = false
- 			timer.performWithDelay(2000, HideCorrect)
+ 		    incorrectObject.isVisible = false
+
+            correctSoundChannel = audio.play(correctSound)	
+
+            timer.performWithDelay(2000, HideCorrect)
 
  		else
  			incorrectObject.isVisible = true
- 			correctObject.isVisible = false
- 			timer.performWithDelay(2000, HideIncorrect)
+            correctObject.isVisible = false
+
+            incorrectSoundChannel = audio.play(incorrectSound)
+
+	        timer.performWithDelay(2000, HideIncorrect)
+
+
+
  		end
         -- clear text field
  		event.target.text = " "

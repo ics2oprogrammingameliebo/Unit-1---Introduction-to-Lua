@@ -23,6 +23,19 @@ beetleship.alpha = 0
 beetleship.x = 0
 beetleship.y = display.contentHeight/3
 
+-----------------------------------------------------------
+-- SOUNDS
+-----------------------------------------------------------
+
+-- create sound variables
+local trainSound = audio.loadSound ( "Sounds/trainSound.mps" ) -- Setting variable to mp3 file
+local trainSoundChannel
+
+trainSoundChannel = audio.play(trainSound)
+
+timer.performWithDelay(2000, HideCorrect)
+
+
 -- Function: MoveShip
 -- Input: this function accepts an even listener
 -- Output: None
