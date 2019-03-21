@@ -128,13 +128,10 @@ display.setStatusBar(display.HiddenStatusBar)
 
 	        timer.performWithDelay(2000, HideIncorrect)
 
-
-
- 		end
         -- clear text field
  		event.target.text = " "
-
- 	end
+        end
+    end
  end
  --------------------------------------------------------------------------
  -- OBJECT CREATION
