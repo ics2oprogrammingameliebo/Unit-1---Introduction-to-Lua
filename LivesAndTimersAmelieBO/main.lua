@@ -10,7 +10,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
  -- set the background color
- display.setDefault("background", 76/255, 0/255, 153/255)
+ display.setDefault("background", 51/255, 187/255, 255/255)
 
  -------------------------------------------------------------------------
  -- LOCAL VARIABLES
@@ -35,9 +35,11 @@ local countDownTimer
 local pointsObject
 local points
 
-local lives = 3
+local lives = 4
 local heart1
 local heart2
+local heart3
+local heart4
 
 --------------------------------------------------------------------
 -- LOCAL FUNCTION
@@ -59,7 +61,11 @@ local function UpdateTime()
     	-- *** IF THERE ARE NO LIVES LEFT, PLAY A LOSE SOUND,
     	-- SHOW A YOU LOOSE IMAGE AND CANCEL THE TIMER, REMOVE THE
     	-- THIRD HEART BY MAKING IT INVISIBLE
-    	if (lives == 2) then
+    	if (lives == 4) then
+    		heart4.isVisible = false
+    	elseif (lives == 3) then
+    		heart3.isVisible = false
+    	elseif (lives == 2) then
     		heart2.isVisible = false
     	elseif (lives == 1) then
     		heart1.isVisible = false
@@ -188,16 +194,16 @@ end
 
  -- display a question and set the color
  questionObject = display.newText ( " ", display.contentWidth/3.5, display.contentHeight/2, nil, 60 )
-questionObject:setTextColor(255/255, 255/255, 0/255)
+questionObject:setTextColor(0/255, 51/255, 102/255)
 
 -- create the correct text object and make it invisible
 correctObject = display.newText( "Correct!", display.contentWidth/2, display.contentHeight*2/3, nil, 60 )
-correctObject:setTextColor(51/255, 255/255, 255/255)
+correctObject:setTextColor(255/255, 255/255, 0/255)
 correctObject.isVisible = false
 
 -- create the correct text object and make it invisible
 incorrectObject = display.newText( "Incorrect", display.contentWidth/2, display.contentHeight*2/3, nil, 60 )
-incorrectObject:setTextColor(255/255, 51/255, 153/255)
+incorrectObject:setTextColor(255/255, 0/255, 0/255)
 incorrectObject.isVisible = false
 
 -- Create numeric field
@@ -215,6 +221,14 @@ heart1.y = display.contentHeight * 1 / 7
 heart2 = display.newImageRect("Images/healthheart.png", 100, 100)
 heart2.x = display.contentWidth * 6 / 8
 heart2.y = display.contentHeight * 1 / 7
+
+heart3 = display.newImageRect("Images/healthheart.png", 100, 100)
+heart3.x = display.contentWidth * 5 / 8
+heart3.y = display.contentHeight * 1 / 7
+
+heart4 = display.newImageRect("Images/healthheart.png", 100, 100)
+heart4.x = display.contentWidth * 4 / 8
+heart4.y = display.contentHeight * 1 / 7
 ------------------------------------------------------------------------
 -- FUNCTION CALLS
 -----------------------------------------------------------------------
