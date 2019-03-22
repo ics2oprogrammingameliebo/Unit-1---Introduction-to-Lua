@@ -28,7 +28,7 @@ beetleship.y = display.contentHeight/3
 -----------------------------------------------------------
 
 -- create sound variables
-local trainSound = audio.loadSound ( "Sounds/trainSound.mps" ) -- Setting variable to mp3 file
+local trainSound = audio.loadSound ( "Sounds/trainSound.mp3" ) -- Setting variable to mp3 file
 local trainSoundChannel
 
 trainSoundChannel = audio.play(trainSound)

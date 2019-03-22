@@ -1,4 +1,4 @@
--- Title: MathFun
+-- Title: LivesAndTimers
 -- Name: Amelie Bender-Olivas
 -- Course: ICS2O/3C
 -- This program displays a math question wich is either addition, 
@@ -26,6 +26,55 @@ display.setStatusBar(display.HiddenStatusBar)
  local randomOperator
  local userAnswer
  local correctAnswer
+-------------------------------------------------------------------
+-- variables for the timers
+local totalSeconds
+local secondsLeft
+local clockText
+local countDownTimer
+local pointsObject
+local points
+
+local lives = 3
+local heart1
+local heart2
+
+--------------------------------------------------------------------
+-- LOCAL FUNCTION
+---------------------------------------------------------------------
+
+local function UpdateTime()
+
+    -- decrement the number of seconds
+    secondsLeft = secondsLeft - 1
+
+    -- Display the number of seconds left in the clock object
+    clockText.text = secondsLeft .. ""
+
+    if (secondsLefts == 0) then
+       -- reset the number of seconds left
+       secondsLeft = totalSeconds
+    	lives = lives -1
+
+    	-- *** IF THERE ARE NO LIVES LEFT, PLAY A LOSE SOUND,
+    	-- SHOW A YOU LOOSE IMAGE AND CANCEL THE TIMER, REMOVE THE
+    	-- THIRD HEART BY MAKING IT INVISIBLE
+    	if (lives == 2) then
+    		heart2.isVisible = false
+    	elseif (lives == 1) then
+    		heart1.isVisible = false
+    	end
+
+    	-- *** CALL THE FUNCTION TO ASK A NEW QUESTION
+
+    end
+end
+
+-- funtion that calls the timer
+local function StarTimer()
+	-- create a countdown timer that looops infinitely
+	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+end
 
  -------------------------------------------------------------------
  -- SOUNDS
@@ -157,6 +206,15 @@ numericField.inputType = "number"
 
 -- add the event listener for the numeric field
 numericField:addEventListener( "userInput", NumericFieldListener )
+
+-- create the lives to display on screen
+heart1 = display.newImageRect("Images/healthheart.png", 100, 100)
+heart1.x = display.contentWidth * 7 / 8
+heart1.y = display.contentHeight * 1 / 7
+
+heart2 = display.newImageRect("Images/healthheart.png", 100, 100)
+heart2.x = display.contentWidth * 6 / 8
+heart2.y = display.contentHeight * 1 / 7
 ------------------------------------------------------------------------
 -- FUNCTION CALLS
 -----------------------------------------------------------------------
