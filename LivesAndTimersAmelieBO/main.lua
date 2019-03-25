@@ -28,8 +28,8 @@ display.setStatusBar(display.HiddenStatusBar)
  local correctAnswer
 -------------------------------------------------------------------
 -- variables for the timers
-local totalSeconds
-local secondsLeft
+local totalSeconds = 15
+local secondsLeft = 15
 local clockText
 local countDownTimer
 local pointsObject
@@ -56,7 +56,7 @@ local function UpdateTime()
     if (secondsLefts == 0) then
        -- reset the number of seconds left
        secondsLeft = totalSeconds
-    	lives = lives -1
+    	lives = lives - 1
 
     	-- *** IF THERE ARE NO LIVES LEFT, PLAY A LOSE SOUND,
     	-- SHOW A YOU LOOSE IMAGE AND CANCEL THE TIMER, REMOVE THE
@@ -150,6 +150,11 @@ end
 
  local function HideIncorrect()
  	incorrectObject.isVisible = false
+ 	AskQuestion()
+ end
+
+  local function HideCorrect()
+ 	correctObject.isVisible = false
  	AskQuestion()
  end
 
