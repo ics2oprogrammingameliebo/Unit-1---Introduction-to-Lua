@@ -229,7 +229,7 @@ heart4 = display.newImageRect("Images/healthheart.png", 100, 100)
 heart4.x = display.contentWidth * 4 / 8
 heart4.y = display.contentHeight * 1 / 7
 
-clockText = display.newText ( " ", display.contentWidth/4, display.contentHeight/4, nil, 60 )
+clockText = display.newText ( "" .. secondsLeft, display.contentWidth/4, display.contentHeight/6, nil, 60 )
 clockText:setTextColor(153/255, 0/255, 153/255)
 ------------------------------------------------------------------------
 -- FUNCTION CALLS
