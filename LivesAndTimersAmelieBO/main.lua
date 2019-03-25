@@ -72,12 +72,11 @@ local function UpdateTime()
     	end
 
     	-- *** CALL THE FUNCTION TO ASK A NEW QUESTION
-
     end
 end
 
 -- funtion that calls the timer
-local function StarTimer()
+local function StartTimer()
 	-- create a countdown timer that looops infinitely
 	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
 end
@@ -150,11 +149,6 @@ end
 
  local function HideIncorrect()
  	incorrectObject.isVisible = false
- 	AskQuestion()
- end
-
-  local function HideCorrect()
- 	correctObject.isVisible = false
  	AskQuestion()
  end
 
@@ -234,6 +228,9 @@ heart3.y = display.contentHeight * 1 / 7
 heart4 = display.newImageRect("Images/healthheart.png", 100, 100)
 heart4.x = display.contentWidth * 4 / 8
 heart4.y = display.contentHeight * 1 / 7
+
+clockText = display.newText ( " ", display.contentWidth/4, display.contentHeight/4, nil, 60 )
+clockText:setTextColor(153/255, 0/255, 153/255)
 ------------------------------------------------------------------------
 -- FUNCTION CALLS
 -----------------------------------------------------------------------
