@@ -171,7 +171,7 @@ end
 
  		-- if the users answer and the correct answer are the same:
  		if (userAnswer == correctAnswer) then
- 			correctObject.isVisible = true
+ 			correctObject.isVisible = true 
  		    incorrectObject.isVisible = false
 
             correctSoundChannel = audio.play(correctSound)	
