@@ -10,7 +10,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
  -- set the background color
- display.setDefault("background", 51/255, 187/255, 255/255)
+display.setDefault("background", 51/255, 187/255, 255/255)
 
  -------------------------------------------------------------------------
  -- LOCAL VARIABLES
@@ -53,10 +53,11 @@ local function UpdateTime()
     -- Display the number of seconds left in the clock object
     clockText.text = secondsLeft .. ""
 
-    if (secondsLefts == 0) then
+    if (secondsLeft == 0) then
        -- reset the number of seconds left
        secondsLeft = totalSeconds
-    	lives = lives - 1
+       lives = lives - 1
+
 
     	-- *** IF THERE ARE NO LIVES LEFT, PLAY A LOSE SOUND,
     	-- SHOW A YOU LOOSE IMAGE AND CANCEL THE TIMER, REMOVE THE
@@ -69,7 +70,9 @@ local function UpdateTime()
     		heart2.isVisible = false
     	elseif (lives == 1) then
     		heart1.isVisible = false
-    	end
+        elseif (lives == 0) then
+            timer.cancel(countDownTimer)
+        end
 
     	-- *** CALL THE FUNCTION TO ASK A NEW QUESTION
     end
@@ -77,8 +80,9 @@ end
 
 -- funtion that calls the timer
 local function StartTimer()
+
 	-- create a countdown timer that looops infinitely
-	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+   countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
 end
 
  -------------------------------------------------------------------
@@ -214,19 +218,19 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 
 -- create the lives to display on screen
 heart1 = display.newImageRect("Images/healthheart.png", 100, 100)
-heart1.x = display.contentWidth * 7 / 8
+heart1.x = display.contentWidth * 6 / 8
 heart1.y = display.contentHeight * 1 / 7
 
 heart2 = display.newImageRect("Images/healthheart.png", 100, 100)
-heart2.x = display.contentWidth * 6 / 8
+heart2.x = display.contentWidth * 4 / 8
 heart2.y = display.contentHeight * 1 / 7
 
 heart3 = display.newImageRect("Images/healthheart.png", 100, 100)
-heart3.x = display.contentWidth * 5 / 8
+heart3.x = display.contentWidth * 7 / 8
 heart3.y = display.contentHeight * 1 / 7
 
 heart4 = display.newImageRect("Images/healthheart.png", 100, 100)
-heart4.x = display.contentWidth * 4 / 8
+heart4.x = display.contentWidth * 5 / 8
 heart4.y = display.contentHeight * 1 / 7
 
 clockText = display.newText ( "" .. secondsLeft, display.contentWidth/2.6, display.contentHeight/6.5, nil, 70 )
@@ -237,3 +241,4 @@ clockText:setTextColor(153/255, 0/255, 153/255)
 
 -- call the function to ask the question
 AskQuestion()
+StartTimer()
