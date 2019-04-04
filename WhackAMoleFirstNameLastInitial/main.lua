@@ -85,10 +85,10 @@ end
  	-- If touch phase just started
  	if (event.phase == "began") then
 
- 	score = score + 1
+ 		score = score + 1
 
- 	scoreObject.text = score .. "Score = " .. event.phase .. ""
- end
+ 		scoreObject.text = score .. "Score = " .. event.phase .. ""
+ 	end
 end
 
 -----------------------------------------------------------------------------------
