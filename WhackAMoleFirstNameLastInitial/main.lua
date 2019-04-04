@@ -86,10 +86,10 @@ end
  	if (event.phase == "began") then
 
  	score = score + 1
- 	
- 	scoreObject.text = score .. "Score = " .. score
- 	end
+
+ 	scoreObject.text = score .. "Score = " .. event.phase .. ""
  end
+end
 
 -----------------------------------------------------------------------------------
 -- OBJECT CREATION
