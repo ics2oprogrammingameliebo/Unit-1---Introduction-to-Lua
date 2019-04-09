@@ -87,7 +87,7 @@ end
 
  		score = score + 1
 
- 		scoreObject.text = score .. "Score = " .. event.phase .. ""
+ 		scoreObject.text = score .. "Score = " 
  	end
 end
 
